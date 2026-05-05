@@ -7,4 +7,6 @@ resource "aws_ecr_repository" "app" {
   }
 
   tags = { Name = "${var.project_name}-ecr" }
+
+  force_delete = true
 }
