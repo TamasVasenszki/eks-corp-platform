@@ -13,11 +13,6 @@ variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
 
-variable "my_ip_cidr" {
-  description = "Your public IP in CIDR format, e.g. 1.2.3.4/32"
-  type        = string
-}
-
 variable "instance_type" {
   type    = string
   default = "t3.medium"
