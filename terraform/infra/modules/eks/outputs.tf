@@ -13,3 +13,7 @@ output "cluster_ca_certificate" {
 output "node_role_arn" {
   value = aws_iam_role.eks_nodes.arn
 }
+
+output "app_pod_role_arn" {
+  value = aws_iam_role.app_pod.arn
+}
