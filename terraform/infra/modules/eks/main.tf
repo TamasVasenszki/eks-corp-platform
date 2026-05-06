@@ -63,6 +63,19 @@ resource "aws_eks_cluster" "main" {
   ]
 }
 
+# EKS Node Launch Template
+resource "aws_launch_template" "eks_nodes" {
+  name_prefix = "${var.project_name}-node-"
+
+  tag_specifications {
+    resource_type = "instance"
+
+    tags = {
+      Name = "${var.project_name}-node"
+    }
+  }
+}
+
 # EKS Node Group
 resource "aws_eks_node_group" "main" {
   cluster_name    = aws_eks_cluster.main.name
@@ -70,8 +83,14 @@ resource "aws_eks_node_group" "main" {
   node_role_arn   = aws_iam_role.eks_nodes.arn
   subnet_ids      = var.private_subnet_ids
   instance_types  = ["t3.medium"]
+  
+  launch_template {
+    id      = aws_launch_template.eks_nodes.id
+    version = "$Latest"
+  }
+
   tags = {
-    Name = "${var.project_name}-node"
+    Name = "${var.project_name}-node-group"
   }
 
   scaling_config {
