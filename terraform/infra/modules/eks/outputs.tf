@@ -17,3 +17,7 @@ output "node_role_arn" {
 output "app_pod_role_arn" {
   value = aws_iam_role.app_pod.arn
 }
+
+output "lbc_role_arn" {
+  value = aws_iam_role.lbc.arn
+}
