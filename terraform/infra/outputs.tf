@@ -37,3 +37,7 @@ output "s3_bucket_name" {
 output "lambda_function_name" {
   value = module.lambda.lambda_function_name
 }
+
+output "cloudfront_url" {
+  value = module.cloudfront.cloudfront_url
+}

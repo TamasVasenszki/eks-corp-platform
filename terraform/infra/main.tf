@@ -39,3 +39,8 @@ module "lambda" {
   s3_bucket_arn  = module.s3.bucket_arn
   health_url     = "http://k8s-default-ekscorpa-a3936bfaef-1754817892.eu-central-1.elb.amazonaws.com/health"
 }
+
+module "cloudfront" {
+  source       = "./modules/cloudfront"
+  project_name = var.project_name
+}
