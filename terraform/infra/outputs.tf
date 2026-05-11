@@ -21,3 +21,7 @@ output "eks_cluster_name" {
 output "eks_cluster_endpoint" {
   value = module.eks.cluster_endpoint
 }
+
+output "app_pod_role_arn" {
+  value = module.eks.app_pod_role_arn
+}
