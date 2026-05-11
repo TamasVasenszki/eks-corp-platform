@@ -25,3 +25,9 @@ module "rds" {
   private_subnet_ids = module.vpc.private_subnet_ids
   db_password        = var.db_password
 }
+
+module "s3" {
+  source            = "./modules/s3"
+  project_name      = var.project_name
+  app_pod_role_name = module.eks.app_pod_role_name
+}

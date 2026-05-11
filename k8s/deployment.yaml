@@ -43,7 +43,7 @@ spec:
                   name: eks-corp-app-secrets
                   key: DB_PASSWORD
             - name: S3_BUCKET_NAME
-              value: "placeholder"
+              value: "tomi-eks-corp-platform-company"
           livenessProbe:
             httpGet:
               path: /health
