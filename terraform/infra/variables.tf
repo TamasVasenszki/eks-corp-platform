@@ -23,3 +23,8 @@ variable "image_tag" {
   type        = string
   default     = "v1"
 }
+
+variable "db_password" {
+  type = string
+  sensitive = true
+}
