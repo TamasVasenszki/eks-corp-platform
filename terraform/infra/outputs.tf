@@ -29,3 +29,7 @@ output "app_pod_role_arn" {
 output "db_endpoint" {
   value = module.rds.db_endpoint
 }
+
+output "s3_bucket_name" {
+  value = module.s3.bucket_name
+}
