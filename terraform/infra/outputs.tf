@@ -25,3 +25,7 @@ output "eks_cluster_endpoint" {
 output "app_pod_role_arn" {
   value = module.eks.app_pod_role_arn
 }
+
+output "db_endpoint" {
+  value = module.rds.db_endpoint
+}
