@@ -133,7 +133,7 @@ case "$1" in
     aws lambda update-function-code \
       --function-name $LAMBDA_FUNCTION \
       --zip-file fileb://lambda/health-check.zip \
-      --region $AWS_REGION
+      --region $AWS_REGION \
       --no-cli-pager
     rm lambda/health-check.zip
     log "Done!"
