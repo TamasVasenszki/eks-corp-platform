@@ -92,13 +92,11 @@ case "$1" in
     sleep 60
 
     warn "1/4 Emptying ECR and S3 buckets..."
-    aws ecr batch-delete-image \
-      --repository-name tomi-eks-corp-platform-app \
-      --image-ids "$(aws ecr list-images --repository-name tomi-eks-corp-platform-app --query 'imageIds[*]' --output json)" \
-      --region $AWS_REGION || true
     aws ecr delete-repository \
       --repository-name tomi-eks-corp-platform-app \
-      --region $AWS_REGION || true
+      --region $AWS_REGION \
+      --force \
+      --no-cli-pager || true
     aws s3 rm s3://tomi-eks-corp-platform-company --recursive || true
     aws s3 rm s3://tomi-eks-corp-platform-static-site --recursive || true
 

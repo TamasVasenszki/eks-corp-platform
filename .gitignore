@@ -55,3 +55,4 @@ out/
 # Lambda build artifacts
 lambda/**/node_modules/
 lambda/**/*.zip
+output.json
