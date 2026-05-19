@@ -6,31 +6,13 @@ A production-grade AWS infrastructure portfolio project built with Terraform, fe
 
 ---
 
-## 📐 Architecture Overview
+## 📐 Architecture
 
-```
-                          ┌─────────────────────────────────────────┐
-                          │              AWS Cloud                  │
-                          │                                         │
-  User ──── HTTPS ───────►│  CloudFront ──► S3 (Static Site)        │
-                          │                                         │
-  User ──── HTTP ────────►│  ALB (Application Load Balancer)        │
-                          │         │                               │
-                          │         ▼                               │
-                          │  ┌─────────────────────┐                │
-                          │  │    EKS Cluster      │                │
-                          │  │  ┌───────────────┐  │                │
-                          │  │  │  HR App Pods  │  │                │
-                          │  │  │  (Node.js)    │  │                │
-                          │  │  └───────┬───────┘  │                │
-                          │  └──────────┼──────────┘                │
-                          │             │                           │
-                          │    ┌────────┼────────┐                  │
-                          │    ▼        ▼        ▼                  │
-                          │   RDS      S3     Lambda                │
-                          │ (Multi-AZ) (Docs)  (Health Check)       │
-                          └─────────────────────────────────────────┘
-```
+The platform is deployed on AWS using EKS, Terraform, and managed services.
+
+<p align="center">
+  <img src="./assets/architecture_diagram.png" alt="Architecture Diagram" width="1000"/>
+</p>
 
 ---
 
